@@ -1,0 +1,11 @@
+# Configuracoes locais do IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Configuracao local com credenciais do banco
+/CalcCalorias/src/main/resources/application.properties
+.env
+.env.*
+!.env.example
