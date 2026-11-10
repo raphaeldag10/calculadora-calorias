@@ -1,12 +1,12 @@
 package com.example.calccalorias.service;
 
 import com.example.calccalorias.dto.AlimentoCadastroDTO;
+import com.example.calccalorias.dto.AlimentoExibicaoDTO;
 import com.example.calccalorias.model.Alimento;
 import com.example.calccalorias.repository.AlimentoRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import br.com.fiap.calorias.dto.AlimentoExibicaoDTO;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +17,7 @@ public class AlimentoService {
         @Autowired
         private AlimentoRepository alimentoRepository;
 
-        public  AlimentoExibicaoDTO salvarAlimento(AlimentoExibicaoDTO alimentoDTO){
+        public AlimentoExibicaoDTO salvarAlimento(AlimentoExibicaoDTO alimentoDTO){
 
             Alimento alimento = new Alimento();
             BeanUtils.copyProperties(alimentoDTO, alimento);
@@ -93,4 +93,3 @@ public class AlimentoService {
         }
 
     }
-}

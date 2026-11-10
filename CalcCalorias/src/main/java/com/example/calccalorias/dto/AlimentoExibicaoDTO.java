@@ -1,4 +1,4 @@
-package br.com.fiap.calorias.dto;
+package com.example.calccalorias.dto;
 
 
 import com.example.calccalorias.model.Alimento;
