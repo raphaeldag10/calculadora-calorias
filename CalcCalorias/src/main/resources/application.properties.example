@@ -1,10 +1,14 @@
-spring.application.name=CalcCalorias
+# CONFIGURAÇÃO BÁSICA DO SPRING
+spring.datasource.url=jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL
+spring.datasource.username=RM0000
+spring.datasource.password=senha
 
-# Configure estas variaveis de ambiente com os dados do seu Oracle.
-spring.datasource.url=${DB_URL}
-spring.datasource.username=${DB_USERNAME}
-spring.datasource.password=${DB_PASSWORD}
-
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.format_sql=true
+# CONFIGURAÇÃO PARA O ORACLE DATABASE
+# CRIAR A TABELA DE CONTROLE DE MIGRAÇÃO NO BANCO DE DADOS
 spring.flyway.baselineOnMigrate=true
+
+# MOSTRAR AS INSTRUÇÕES SQL EXECUTADAS NO BANCO DE DADOS
+spring.jpa.show-sql=true
+
+# QUEBRAR A EXIBIÇÃO DA INSTRUÇÃO SQL EM VÁRIAS LINHAS
+spring.jpa.properties.hibernate.format_sql=true
