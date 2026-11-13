@@ -19,7 +19,7 @@ public record AlimentoExibicaoDTO(
                 alimento.getNome(),
                 alimento.getPorcao(),
                 alimento.getQuantidadeProteina(),
-                alimento.getQuantidadeCarboidrado(),
+                alimento.getQuantidadeCarboidrato(),
                 alimento.getQuantidadeGorduras(),
                 alimento.getTotalCalorias()
         );

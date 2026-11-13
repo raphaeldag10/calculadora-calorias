@@ -55,9 +55,8 @@ public class UsuarioController {
     // Metodo para atualizar um usuário
     @PutMapping("/usuarios")
     @ResponseStatus(HttpStatus.OK) // Resposta do servidor ao cliente se a requisição for bem sucedida código 200
-    public Usuario atualizar(@RequestBody Usuario usuario){ //@RequestBody quer dizer que o spring irá receber um arquivo JSON e precisa transformar ele em objeto para utilizar no metodo
+    public Usuario atualizar(@RequestBody Usuario usuario) { //@RequestBody quer dizer que o spring irá receber um arquivo JSON e precisa transformar ele em objeto para utilizar no metodo
         return usuarioService.atualizar(usuario);
     }
-
-
 }
+
