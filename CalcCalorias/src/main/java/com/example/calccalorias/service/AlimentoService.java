@@ -17,7 +17,7 @@ public class AlimentoService {
         @Autowired
         private AlimentoRepository alimentoRepository;
 
-        public AlimentoExibicaoDTO salvarAlimento(AlimentoExibicaoDTO alimentoDTO){
+        public AlimentoExibicaoDTO salvarAlimento(AlimentoCadastroDTO alimentoDTO){
 
             Alimento alimento = new Alimento();
             BeanUtils.copyProperties(alimentoDTO, alimento);
@@ -25,7 +25,7 @@ public class AlimentoService {
             alimento.setTotalCalorias(
                     calcularCalorias(
                             alimento.getQuantidadeProteina(),
-                            alimento.getQuantidadeCarboidrado(),
+                            alimento.getQuantidadeCarboidrato(),
                             alimento.getQuantidadeGorduras()
                     )
             );
@@ -76,7 +76,7 @@ public class AlimentoService {
                 alimento.setTotalCalorias(
                         calcularCalorias(
                                 alimento.getQuantidadeProteina(),
-                                alimento.getQuantidadeCarboidrado(),
+                                alimento.getQuantidadeCarboidrato(),
                                 alimento.getQuantidadeGorduras()
                         )
                 );

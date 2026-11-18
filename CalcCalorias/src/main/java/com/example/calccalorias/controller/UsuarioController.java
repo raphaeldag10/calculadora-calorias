@@ -4,6 +4,7 @@ import com.example.calccalorias.dto.UsuarioCadastroDTO;
 import com.example.calccalorias.dto.UsuarioExibicaoDTO;
 import com.example.calccalorias.model.Usuario;
 import com.example.calccalorias.service.UsuarioService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class UsuarioController {
     // Metodo para criar usuário
     @PostMapping("/usuarios") // Quando o cliente enviar uma requisição Post para a url /api/usuarios ele irá acessar esse metodo
     @ResponseStatus(HttpStatus.CREATED) // Resposta do servidor ao cliente se a requisição for bem sucedida Código 201
-    public UsuarioExibicaoDTO salvar(@RequestBody UsuarioCadastroDTO usuarioCadastroDTO) { //@RequestBody quer dizer que o spring irá receber um arquivo JSON e precisa transformar ele em objeto para utilizar no metodo
+    public UsuarioExibicaoDTO salvar(@Valid @RequestBody UsuarioCadastroDTO usuarioCadastroDTO) { //@RequestBody quer dizer que o spring irá receber um arquivo JSON e precisa transformar ele em objeto para utilizar no metodo
         return usuarioService.salvarUsuario(usuarioCadastroDTO);
     }
 
@@ -36,13 +37,16 @@ public class UsuarioController {
     // Metodo para visualizar um usuário
     @GetMapping("/usuarios/{id}") //http://localhost:8080/api/usuario/12
     @ResponseStatus(HttpStatus.OK) // Resposta do servidor ao cliente se a requisição for bem sucedida código 200
-    public ResponseEntity <UsuarioExibicaoDTO> buscarPorId(@PathVariable Long id){ //@PathVariable quer dizer que ele irá pegar a variável que está no caminho da requisição no caso {id}
-        try{
-            return ResponseEntity.ok(usuarioService.buscarPorId(id));
+    public ResponseEntity <UsuarioExibicaoDTO> buscarPorId(@PathVariable Long id){        //@PathVariable quer dizer que ele irá pegar a variável que está no caminho da requisição no caso {id}
 
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok(usuarioService.buscarPorId(id));
+
+        //        try{
+//            return ResponseEntity.ok(usuarioService.buscarPorId(id));
+//
+//        } catch (Exception e) {
+//            return ResponseEntity.notFound().build();
+//        }
     }
 
     // Metodo para deletar um usuário
@@ -55,7 +59,7 @@ public class UsuarioController {
     // Metodo para atualizar um usuário
     @PutMapping("/usuarios")
     @ResponseStatus(HttpStatus.OK) // Resposta do servidor ao cliente se a requisição for bem sucedida código 200
-    public Usuario atualizar(@RequestBody Usuario usuario){ //@RequestBody quer dizer que o spring irá receber um arquivo JSON e precisa transformar ele em objeto para utilizar no metodo
+    public Usuario atualizar(@Valid @RequestBody Usuario usuario){ //@RequestBody quer dizer que o spring irá receber um arquivo JSON e precisa transformar ele em objeto para utilizar no metodo
         return usuarioService.atualizar(usuario);
     }
 

@@ -32,7 +32,7 @@ public class Alimento {
     private Double quantidadeProteina;
 
     @Column(name = "qtde_carboidrato")
-    private Double quantidadeCarboidrado;
+    private Double quantidadeCarboidrato;
 
     @Column(name = "qtde_gorduras")
     private Double quantidadeGorduras;
